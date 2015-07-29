@@ -35,7 +35,7 @@ public class Application {
 //				
 //		Fix getInventory (Layout;
 //		test all methods;
-//		Create the Event class
+//		
 //		
 //		
 //		
@@ -54,9 +54,18 @@ public class Application {
 //			
 //			Event
 		
+		// Initialize Narrator 
+		Character narrator = new Character ("narrator");
+		// Set Talking Speed
+		narrator.setTalkingSpeed(20);
+		
+		
 		// Initialize new Character
 		Character peter = new Character("peter");
+		// Set talking Speed
 		peter.setTalkingSpeed(20);
+		
+		
 		
 		// getCharacterInformation
 		peter.getCharacterInformation();
@@ -66,10 +75,10 @@ public class Application {
 		//System.out.printf("\n");
 		//peter.speak(sentence);
 
-
-		peter.setChoice("Hello");
-		System.out.printf(peter.getChoice() + "\n\n");
-		 
+		
+		// Test newSpeak method
+		peter.newSpeak("My name ist Peter");
+		
 		// Create a new item (1)
 		Item i1_axe = new Item("axe");
 
@@ -77,13 +86,14 @@ public class Application {
 		i1_axe.setItemFunction("hit");
 		i1_axe.setItemDescription("testDescription");
 		i1_axe.setItemCategory("axes");
-		i1_axe.getItemInformation();
+		//i1_axe.getItemInformation();
 		peter.addToInventory(i1_axe);
 		peter.addToInventory(i1_axe);
 		
 		
 		// Create a new Item(2)
 		Item i2_sword = new Item("sword");
+		
 		// Define Item (2)
 		i2_sword.setItemDescription("testDescription");
 		i2_sword.setItemCategory("swords");
@@ -94,23 +104,20 @@ public class Application {
 		// Outputs inventory
 		peter.getInventory();
 		
-		// Test the speakMethod
-		peter.newSpeak("new Speak Test");
-		
-		// Set a create newChoice
-		peter.setChoice("Left");
-		System.out.printf(peter.getChoice() + "\n\n");
-		
 		// Create a new Event
-		Event event1 = new Event("event happened");
-		Pairing newPairing = new Pairing(peter, "Left", event1 )
+		Event event = new Event("damage");	
+		// kevent.defineEvent(peter, action, value);
 		
-		// Creating a new Option
-		Option o1_left = new Option("Left");
-		// Testing Choice --> Option
-		if (peter.getChoice() == o1_left.getOption()){
-			System.out.println("COOL");
-		}
+		// Test target/type recognition
+		peter.setAction();
+		System.out.println("This is the target : " + peter.getTarget());
+		System.out.println("This is the type : " + peter.getType());
+		
+		// Test Pairing
+		Pairing pairing1 = new Pairing(peter, "kill", "animal", event);
+		System.out.println(pairing1.getPairing());
+				
+		
 		
 	}
 }

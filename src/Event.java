@@ -11,7 +11,9 @@ public class Event {
 //	INIT VARIABLES.
 //  ---------------------------------------------------------------------------
 	private String event;
-	private String type = "event"; 
+	private String target;
+	private String action;
+	private String value;
 	
 //	---------------------------------------------------------------------------
 
@@ -20,12 +22,24 @@ public class Event {
 		this.event = event;
 	}
 	
-	// Gets Event name
+	// Changes the name of the event after creation (saving objects)
+	public void setEvent(String event){
+		this.event = event;
+		
+	}
+	
+	// Get Event name
 	public String getEvent(){
 		return event;
 		
 	}
 	
-	// Defines the functions of Event
-	public void setEvent(String target){
+	// Define Event value -> action -> target 
+	public void defineEvent(Character target, Character action, String value){
+		this.target = target;
+		this.action = action;
+		this.value = value;
+		
+	}
+	
 }

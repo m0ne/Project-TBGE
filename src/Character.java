@@ -35,9 +35,9 @@ public class Character extends Item{
 	
 	}
 
-	// Get Character Information
 	public void getCharacterInformation() {
-		System.out.printf(name + "\n\n");
+		System.out.printf("Character Name: " + name + "\n");
+		System.out.printf("Talking Speed: " + talkingSpeed + "\n\n");
 	}
 	
 	// Set Characters Lifes 
@@ -147,7 +147,7 @@ public class Character extends Item{
 				return;
 			}
 		}
-		System.out.printf("\n");
+		System.out.printf("\n\n");
 		// If sentence is needed output "sentence"
 
 	}
